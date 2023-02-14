@@ -46,12 +46,14 @@ const ViewDetails = ({ country }) => {
         )}
       </Text>
       <Text style={styles.text}>Population: {country?.population}</Text>
-      <Text style={styles.text}>
-        Position:{" "}
-        {country?.latlng?.map((data, i) =>
-          i == country?.borders?.length - 1 ? data : data + ", "
-        )}
-      </Text>
+      {country?.borders && (
+        <Text style={styles.text}>
+          Position:{" "}
+          {country?.latlng?.map((data, i) =>
+            i == country?.borders?.length - 1 ? data : data + ", "
+          )}
+        </Text>
+      )}
       <Text style={styles.text}>
         Dial: {country?.idd?.root}
         {country?.idd?.suffixes}
@@ -67,19 +69,17 @@ const styles = StyleSheet.create({
   },
   flagArea: {
     width: "100%",
-    height: 170,
+    height: 200,
     marginBottom: 10,
   },
   image: {
     height: "100%",
     width: "100%",
-    borderWidth: 5,
-    borderColor: "#00FFFF",
-    borderRadius: 3,
   },
   text: {
     marginBottom: 5,
     fontWeight: "bold",
+    color: "black",
   },
 });
 

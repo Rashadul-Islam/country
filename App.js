@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { SafeAreaView, StyleSheet, Text } from "react-native";
 import TextForm from "./components/TextForm/TextForm";
 import ViewDetails from "./components/ViewDetails/ViewDetails";
+import WelcomePage from "./components/WelcomePage/WelcomePage";
 
 export default function App() {
   const [searchText, setSearchText] = useState("");
@@ -21,7 +22,7 @@ export default function App() {
       {countryData?.name?.common ? (
         <ViewDetails country={countryData} />
       ) : countryData?.length === 0 ? (
-        <Text style={styles.startText}>Welcome To County Details...!</Text>
+        <WelcomePage />
       ) : (
         <Text style={styles.text}>Please Check Your Spelling...!</Text>
       )}
@@ -31,13 +32,10 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
-    marginTop: 50,
+    flex: 1,
+    backgroundColor: "cyan",
     padding: 20,
-  },
-  startText: {
-    textAlign: "center",
-    marginTop: 100,
+    height: "100%",
   },
   text: {
     color: "red",
